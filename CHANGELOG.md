@@ -10,6 +10,8 @@ This changelog covers all components:
 
 ## [Unreleased]
 
+## [1.8.35] - 2026-03-25
+
 ### Fixed
 
 - **Power Query privacy/firewall failures were flattened into generic service errors or hangs instead of surfacing a stable diagnostic**: Core now classifies recognized Power Query failures into structured categories such as `Privacy`, `Expression`, `Connectivity`, and `Authentication` via `PowerQueryCommandException`. The service, CLI, and MCP layers now preserve `errorCategory` in their responses, and refresh timeouts on firewall-prone query formulas are reported as likely privacy issues instead of leaving callers blind. Added a privacy-safe synthetic firewall repro in Core, a CLI regression for structured privacy output, and real verification against the CP Toolkit `ConfigData` scenario.
